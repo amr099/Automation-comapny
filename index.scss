@@ -1,0 +1,234 @@
+@font-face {
+    font-family: barlow;
+    src: url(./fonts/BarlowCondensed-Regular.ttf);
+}
+
+:root {
+    --primary-font: "barlow", sans-serif;
+    --dark-color: #153064;
+}
+
+@mixin flex($dir, $gap) {
+    display: flex;
+    gap: $gap;
+    flex-direction: $dir;
+}
+
+body {
+    font-family: var(--primary-font);
+    color: black;
+    background-image: url("./imgs/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(4px);
+}
+
+h1,
+h2 {
+    color: var(--dark-color);
+    white-space: nowrap;
+}
+h1 {
+    font-size: 4rem;
+    letter-spacing: 2px;
+}
+h2 {
+    font-size: 2rem;
+    letter-spacing: 1.5px;
+}
+p {
+    font-size: 1.5rem;
+    line-height: 2;
+}
+a,
+button,
+input,
+textarea {
+    all: unset;
+}
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+a:hover {
+    color: var(--dark-color);
+    cursor: pointer;
+}
+.container {
+    min-height: 100vh;
+    width: 80%;
+    margin: 0 auto;
+    @include flex(column, 2rem);
+}
+header {
+    @include flex(row, 2rem);
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1.5rem 0;
+
+    ul {
+        @include flex(row, 2rem);
+        width: 40%;
+        justify-content: space-around;
+        li {
+            white-space: nowrap;
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.menu {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    background-color: white;
+    backdrop-filter: blur(2px);
+    opacity: 0.6;
+    ul {
+        @include flex(row, 0.5rem);
+        justify-content: space-around;
+        li {
+            font-size: 1.5rem;
+            letter-spacing: 1.4px;
+            font-weight: bold;
+            white-space: nowrap;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+section.home {
+    @include flex(column, 2rem);
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+
+    p {
+        text-align: center;
+        width: 70%;
+    }
+}
+
+section.brands {
+    @include flex(column, 0);
+    justify-content: center;
+    align-items: center;
+    display: none;
+    div {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    video {
+        width: 100%;
+        border-radius: 1rem;
+    }
+}
+section.contactus {
+    @include flex(column, 2rem);
+    .form {
+        @include flex(column, 2rem);
+        justify-content: center;
+        width: 60%;
+        height: 50vh;
+        margin: 0 auto;
+        button {
+            align-self: flex-end;
+        }
+    }
+    display: none;
+}
+
+.input-div {
+    @include flex(column, 0.5rem);
+}
+
+label {
+    color: var(--dark-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+input,
+textarea,
+button {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+input,
+textarea {
+    border: 1px solid gray;
+    background-color: white;
+}
+button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--dark-color);
+    border: 1px solid var(--dark-color);
+    &:hover {
+        background-color: var(--dark-color);
+        color: white;
+        cursor: pointer;
+    }
+}
+
+input.error,
+textarea.error {
+    border: 1px solid red;
+}
+
+span.error {
+    display: none;
+    color: red;
+}
+
+input:focus,
+textarea:focus {
+    border: 1px solid var(--dark-color);
+}
+
+.selected {
+    font-weight: bold;
+    border-bottom: 1px solid var(--dark-color);
+}
+
+.hide {
+    display: none;
+}
+
+@media (max-width: 769px) {
+    header {
+        flex-direction: column;
+        img {
+            align-self: center;
+        }
+        ul {
+            width: 100%;
+        }
+    }
+    section.home {
+        p {
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .menu {
+        font-size: 0.5rem;
+    }
+
+    section.contactus {
+        .form {
+            width: 90%;
+        }
+    }
+}

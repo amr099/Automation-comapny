@@ -1,0 +1,8 @@
+1- styling
+    - background
+    - animation
+
+
+
+2- Get from client: 
+    - email , address, phone number , social media links
